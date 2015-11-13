@@ -109,7 +109,7 @@ endfunction
 " // Functions for Maven information :~)
 
 function! s:listFolders(path, excludeNames)
-	let l:subFolders = globpath(a:path, "*", 0, 1)
+	let l:subFolders = split(globpath(a:path, "*"), '\n')
 	call filter(subFolders, 'isdirectory(v:val)')
 
 	for excludeName in a:excludeNames
